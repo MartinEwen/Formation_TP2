@@ -34,18 +34,28 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard.php">DashBoard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Connexion</a>
-                </li>
-                <li class="nav-item">
+                <?php
+                if ($_SESSION) {
+                    echo '<li class="nav-item">
+                            <a class="nav-link" href="dashboard.php">DashBoard</a>
+                          </li>';
+                }
+
+                // <li class="nav-item">
+                //     <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a>
+                // </li>
+                ?>
+                <?php
+                if ($_SESSION) {
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="logout.php">Deconnexion</a>
-                </li>
+                </li>';
+                } else {
+                    echo '<li class="nav-item">
+                    <a class="nav-link" href="login.php">Connexion</a>
+                </li>';
+                }
+                ?>
             </ul>
         </div>
     </div>
@@ -53,7 +63,74 @@ session_start();
 
 <body>
 
+    <div class="row">
+        <div class="col-4">
+            <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                <nav class="nav nav-pills flex-column">
+                    <br>
+                    <a class="nav-link" href="#item-1">Ajouter un produit</a>
+                    <br>
+                    <a class="nav-link" href="#item-2">Supprimer un produit</a>
+                    <br>
+                    <a class="nav-link" href="#item-3">Gestion des compte</a>
+                    <br>
+                </nav>
+            </nav>
+        </div>
 
+        <div class="col-8">
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+                <div id="item-1">
+                    <h2>Ajouter un produit</h2>
+                    <form action="form_addproduct.php" method="post">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="">Nom du Produit</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="">Description du produit</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form method="POST" action="" enctype="multipart/form-data">
+                                        <input type="file" name="choosefile" value="" />
+                                        <div>
+                                            <button type="submit" name="uploadfile">
+                                                UPLOAD
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit">Valider le nouveau produit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="item-2">
+                    <h2>Supprimer un produit</h2>
+                </div>
+                <div id="item-3">
+                    <h2>Gestion des compte</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
