@@ -1,6 +1,6 @@
 <?php
 require('createDB.php');
-session_start();
+
 
 
 ?>
@@ -52,8 +52,20 @@ session_start();
 </nav>
 
 <body>
-
-
+    <h2>Connexion</h2>
+    <form action="form_connexion.php" method="post">
+        <input type="text" name="mailUser" placeholder="mail">
+        <input type="password" name="passwordUser" placeholder="Mot de passe">
+        <input type="submit" value="Connexion">
+    </form>
+    <h2>Inscription</h2>
+    <form action="form_register.php" method="post">
+        <input type="text" name="mailUser" placeholder="mail">
+        <input type="text" name="nameUser" placeholder="Nom">
+        <input type="text" name="firstNameUser" placeholder="Prenom">
+        <input type="password" name="passwordUser" placeholder="Mot de passe">
+        <input type="submit" value="Enregistrer">
+    </form>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
