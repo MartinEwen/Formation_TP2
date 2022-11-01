@@ -89,32 +89,17 @@ session_start();
                                     <label for="">Nom du Produit</label>
                                     <input type="text">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
                                 <div class="col-md-6">
                                     <label for="">Description du produit</label>
                                     <input type="text">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form method="POST" action="" enctype="multipart/form-data">
-                                        <input type="file" name="choosefile" value="" />
-                                        <div>
-                                            <button type="submit" name="uploadfile">
-                                                UPLOAD
-                                            </button>
-                                        </div>
-                                    </form>
+                                <div class="col-md-6">
+                                    <label for="">prix du produit</label>
+                                    <input type="text">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
+                                <div class="col-md-6">
+                                        <input type="file" name="choosefile" value="" />
+                                </div>
                                 <div class="col-md-12">
                                     <button type="submit">Valider le nouveau produit</button>
                                 </div>

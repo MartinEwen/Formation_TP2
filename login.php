@@ -63,19 +63,49 @@ session_start();
 </nav>
 
 <body>
-    <h2>Connexion</h2>
+
     <form action="form_connexion.php" method="post">
-        <input type="text" name="mailUser" placeholder="mail">
-        <input type="password" name="passwordUser" placeholder="Mot de passe">
-        <input type="submit" value="Connexion">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Connexion</h2>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="mailUser" placeholder="mail">
+                </div>
+                <div class="col-md-6">
+                    <input type="password" name="passwordUser" placeholder="Mot de passe">
+                </div>
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Connexion">
+                </div>
+            </div>
+        </div>
     </form>
-    <h2>Inscription</h2>
+    <br>
     <form action="form_register.php" method="post">
-        <input type="text" name="mailUser" placeholder="mail">
-        <input type="text" name="nameUser" placeholder="Nom">
-        <input type="text" name="firstNameUser" placeholder="Prenom">
-        <input type="password" name="passwordUser" placeholder="Mot de passe">
-        <input type="submit" value="Enregistrer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Inscription</h2>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="mailUser" placeholder="mail">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="nameUser" placeholder="Nom">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="firstNameUser" placeholder="Prenom">
+                </div>
+                <div class="col-md-3">
+                    <input type="password" name="passwordUser" placeholder="Mot de passe">
+                </div>
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Enregistrer">
+                </div>
+            </div>
+        </div>
     </form>
 
     <!-- JavaScript Bundle with Popper -->

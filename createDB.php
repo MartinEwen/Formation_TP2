@@ -13,6 +13,7 @@ try {
     `idProduct` INT NOT NULL AUTO_INCREMENT ,
     `nameProduct` VARCHAR(100) NOT NULL ,
     `descriptionProduct` VARCHAR(100) NOT NULL ,
+    `priceProduct` VARCHAR(100) NOT NULL ,
     `photoProduct` VARCHAR(100) NOT NULL , PRIMARY KEY (`idProduct`)) ENGINE = InnoDB;";
     $pdo->exec($sql);
 } catch (PDOException $e) {
