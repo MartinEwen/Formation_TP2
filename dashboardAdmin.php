@@ -81,8 +81,9 @@ session_start();
         <div class="col-8">
             <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
                 <div id="item-1">
-                    <h2>Ajouter un produit</h2>
+
                     <form action="form_addproduct.php" method="post">
+                        <h2>Ajouter un produit</h2>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
@@ -98,7 +99,7 @@ session_start();
                                     <input type="text">
                                 </div>
                                 <div class="col-md-6">
-                                        <input type="file" name="choosefile" value="" />
+                                    <input type="file" name="choosefile" value="" />
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit">Valider le nouveau produit</button>
@@ -108,7 +109,26 @@ session_start();
                     </form>
                 </div>
                 <div id="item-2">
-                    <h2>Supprimer un produit</h2>
+                    <form action="" method="post">
+                        <h2>Supprimer un produit</h2>
+                        <select name="" id="">
+                            <?php
+                            try {
+                                $pdo = new PDO('mysql:host=localhost;dbname=BoutiqueTP;port=3306', 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+                                $sth = $pdo->prepare("SELECT  nameProduct FROM PRODUCT");
+                                $sth->execute();
+                                $resultat = $sth->fetchAll();
+                                foreach ($resultat as $value) {
+                                    echo '<option value="">' . $value['nameProduct'] . '</option>';
+                                }
+                            } catch (PDOException $e) {
+                                echo "Erreur !: " . $e->getMessage() . "<br/>";
+                            }
+                            ?>
+                        </select>
+                        <br>
+                        <button type="submit">supprimmer le produit</button>
+                    </form>
                 </div>
                 <div id="item-3">
                     <h2>Gestion des compte</h2>
