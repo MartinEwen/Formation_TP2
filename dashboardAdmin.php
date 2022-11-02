@@ -82,24 +82,24 @@ session_start();
             <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
                 <div id="item-1">
 
-                    <form action="form_addproduct.php" method="post">
+                    <form action="form_addproduct.php" method="POST" enctype="multipart/form-data">
                         <h2>Ajouter un produit</h2>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="">Nom du Produit</label>
-                                    <input type="text">
+                                    <input type="text" name="nameProduct">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">Description du produit</label>
-                                    <input type="text">
+                                    <input type="text" name="descriptionProduct">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">prix du produit</label>
-                                    <input type="text">
+                                    <input type="text" name="priceProduct">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="file" name="choosefile" value="" />
+                                    <input type="file" name="image" value="" />
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit">Valider le nouveau produit</button>
@@ -109,7 +109,7 @@ session_start();
                     </form>
                 </div>
                 <div id="item-2">
-                    <form action="" method="post">
+                    <form action="form_deleteproduct.php" method="post">
                         <h2>Supprimer un produit</h2>
                         <select name="" id="">
                             <?php
