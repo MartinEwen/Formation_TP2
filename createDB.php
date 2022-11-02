@@ -14,7 +14,7 @@ try {
     `nameProduct` VARCHAR(100) NOT NULL ,
     `descriptionProduct` VARCHAR(100) NOT NULL ,
     `priceProduct` VARCHAR(100) NOT NULL ,
-    `image` VARCHAR(100) NOT NULL , PRIMARY KEY (`idProduct`)) ENGINE = InnoDB;";
+    `images` VARCHAR(100) NOT NULL , PRIMARY KEY (`idProduct`)) ENGINE = InnoDB;";
     $pdo->exec($sql);
 } catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
