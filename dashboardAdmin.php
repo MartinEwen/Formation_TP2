@@ -127,7 +127,7 @@ session_start();
                                     </tr>
                                 <?php
                                 foreach ($resultat as $value) {
-                                    echo '<tr><td>' . $value['nameProduct'] . '</td><td>' . $value['descriptionProduct'] . '</td><td>' . $value['priceProduct'] .'</td><td><button class="btn btn-warnnig" type="submit" value="'.$value['idProduct'].'">supprimer</button></td></tr>';
+                                    echo '<tr><td>' . $value['nameProduct'] . '</td><td>' . $value['descriptionProduct'] . '</td><td>' . $value['priceProduct'] .'</td><td><button type="submit" value="'.$value['idProduct'].'">supprimer</button></td></tr>';
                                 }
                             } catch (PDOException $e) {
                                 echo "Erreur : " . $e->getMessage();

@@ -34,33 +34,35 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <?php
-                    if ($_SESSION) {
-                        echo '<li class="nav-item">
-                                <a class="nav-link" href="dashboard.php">DashBoard</a>
-                              </li>';
-                    }
-
-                    // <li class="nav-item">
-                    //     <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a>
-                    // </li>
-                    ?>
-                    <?php
-                    if ($_SESSION) {
-                        echo '<li class="nav-item">
+                <?php
+                if($_SESSION){
+                 echo  ' <li class="nav-item">
+                    <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a>
+                </li>';
+                } else {
+                    echo '<li class="nav-item">
+                    <a class="nav-link" href="dashboard.php">DashBoard</a>
+                </li>';
+                }
+                
+                
+                ?>
+                <?php
+                if($_SESSION){
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="logout.php">Deconnexion</a>
                 </li>';
-                    } else {
-                        echo '<li class="nav-item">
+                }else {
+                   echo '<li class="nav-item">
                     <a class="nav-link" href="login.php">Connexion</a>
                 </li>';
-                    }
-                    ?>
+                }
+                ?>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <body>
 
