@@ -40,13 +40,7 @@ session_start();
                  echo  ' <li class="nav-item">
                     <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a>
                 </li>';
-                } else {
-                    echo '<li class="nav-item">
-                    <a class="nav-link" href="dashboard.php">DashBoard</a>
-                </li>';
                 }
-                
-                
                 ?>
                 <?php
                 if($_SESSION){

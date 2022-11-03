@@ -7,7 +7,8 @@ session_start();
 
 
 
-
+<?php 
+if($_SESSION){ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,13 +38,8 @@ session_start();
                 <?php
                 if ($_SESSION) {
                     echo '<li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">DashBoard</a>
-                          </li>';
+                    <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a></li>';
                 }
-
-                // <li class="nav-item">
-                //     <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a>
-                // </li>
                 ?>
                 <?php
                 if ($_SESSION) {
@@ -123,11 +119,11 @@ session_start();
                                         <th>Description</th>
                                         <th>Prix</th>
                                         <th></th>
-                                        
+
                                     </tr>
                                 <?php
                                 foreach ($resultat as $value) {
-                                    echo '<tr><td>' . $value['nameProduct'] . '</td><td>' . $value['descriptionProduct'] . '</td><td>' . $value['priceProduct'] .'</td><td><button type="submit" value="'.$value['idProduct'].'">supprimer</button></td></tr>';
+                                    echo '<tr><td>' . $value['nameProduct'] . '</td><td>' . $value['descriptionProduct'] . '</td><td>' . $value['priceProduct'] . '</td><td><button type="submit" value="' . $value['idProduct'] . '">supprimer</button></td></tr>';
                                 }
                             } catch (PDOException $e) {
                                 echo "Erreur : " . $e->getMessage();
@@ -139,22 +135,22 @@ session_start();
                     <div id="item-3">
                         <h2>Gestion des compte</h2>
                         <?php
-                            try {
-                                $pdo = new PDO('mysql:host=localhost;dbname=BoutiqueTP;port=3306', 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-                                $sth = $pdo->prepare("SELECT idUser, nameUser, firstNameUser, mailUser FROM USERS");
-                                $sth->execute();
-                                $resultat = $sth->fetchAll();
-                            ?>
-                                <table class="table table-striped">
-                                <?php
-                                foreach ($resultat as $value) {
-                                    echo '<tr><td>' . $value['nameUser'] . '</td><td>' . $value['firstNameUser'] . '</td><td>' . $value['mailUser'] .'</td><td><button class="btn btn-warnnig" type="submit">supprimer</button></td></tr>';
-                                }
-                            } catch (PDOException $e) {
-                                echo "Erreur : " . $e->getMessage();
+                        try {
+                            $pdo = new PDO('mysql:host=localhost;dbname=BoutiqueTP;port=3306', 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+                            $sth = $pdo->prepare("SELECT idUser, nameUser, firstNameUser, mailUser FROM USERS");
+                            $sth->execute();
+                            $resultat = $sth->fetchAll();
+                        ?>
+                            <table class="table table-striped">
+                            <?php
+                            foreach ($resultat as $value) {
+                                echo '<tr><td>' . $value['nameUser'] . '</td><td>' . $value['firstNameUser'] . '</td><td>' . $value['mailUser'] . '</td><td><button class="btn btn-warnnig" type="submit">supprimer</button></td></tr>';
                             }
-                                ?>
-                                </table>
+                        } catch (PDOException $e) {
+                            echo "Erreur : " . $e->getMessage();
+                        }
+                            ?>
+                            </table>
                     </div>
                 </div>
             </div>
@@ -165,3 +161,9 @@ session_start();
 </body>
 
 </html>
+
+<?php }
+else {
+header('Location:index.php');
+}
+?>
