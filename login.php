@@ -19,7 +19,7 @@ session_start();
 <header>
     <img src="img/banniere.jpg" alt="">
 </header>
-<nav class="navbar navbar-expand-lg bg-primary ">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,19 +30,19 @@ session_start();
                     <a class="nav-link" href="index.php">Accueil</a>
                 </li>
                 <?php
-                if($_SESSION){
-                 echo  ' <li class="nav-item">
+                if ($_SESSION) {
+                    echo  ' <li class="nav-item">
                     <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a>
                 </li>';
                 }
                 ?>
                 <?php
-                if($_SESSION){
+                if ($_SESSION) {
                     echo '<li class="nav-item">
                     <a class="nav-link" href="logout.php">Deconnexion</a>
                 </li>';
-                }else {
-                   echo '<li class="nav-item">
+                } else {
+                    echo '<li class="nav-item">
                     <a class="nav-link" href="login.php">Connexion</a>
                 </li>';
                 }
@@ -54,53 +54,88 @@ session_start();
 
 
 <body>
-
-    <form action="form_connexion.php" method="post">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Connexion</h2>
-                </div>
-                <div class="col-md-6">
-                    <input type="text" name="mailUser" placeholder="mail" required>
-                </div>
-                <div class="col-md-6">
-                    <input type="password" name="passwordUser" placeholder="Mot de passe" required>
-                </div>
-                <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Connexion" required>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="form_connexion.php" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Connexion</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="mailUser" placeholder="mail" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="password" name="passwordUser" placeholder="Mot de passe" required>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Connexion" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form action="form_register.php" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Inscription</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="mailUser" placeholder="mail" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="nameUser" placeholder="Nom" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="firstNameUser" placeholder="Prenom" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="password" name="passwordUser" placeholder="Mot de passe" required>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Enregistrer" required>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
-    <br>
-    <form action="form_register.php" method="post">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Inscription</h2>
-                </div>
-                <div class="col-md-3">
-                    <input type="text" name="mailUser" placeholder="mail" required>
-                </div>
-                <div class="col-md-3">
-                    <input type="text" name="nameUser" placeholder="Nom" required>
-                </div>
-                <div class="col-md-3">
-                    <input type="text" name="firstNameUser" placeholder="Prenom" required>
-                </div>
-                <div class="col-md-3">
-                    <input type="password" name="passwordUser" placeholder="Mot de passe" required>
-                </div>
-                <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Enregistrer" required>
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
+<footer>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarColor01">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Accueil</a>
+                    </li>
+                    <?php
+                    if ($_SESSION) {
+                        echo '<li class="nav-item">
+                    <a class="nav-link" href="dashboardAdmin.php">DashBoard Admin</a></li>';
+                    }
+                    ?>
+                    <?php
+                    if ($_SESSION) {
+                        echo '<li class="nav-item">
+                    <a class="nav-link" href="logout.php">Deconnexion</a>
+                </li>';
+                    } else {
+                        echo '<li class="nav-item">
+                    <a class="nav-link" href="login.php">Connexion</a>
+                </li>';
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</footer>
 
 </html>

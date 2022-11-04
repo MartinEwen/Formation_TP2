@@ -3,19 +3,33 @@ header img {
   height: 50vh;
 }
 
+nav {
+  font-size: 30px;
+  color: white;
+}
+
 body {
-  background-color: #00ffff;
+  background-color: white;
+  color: black;
 }
 body h1 {
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
+}
+body h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 35px;
 }
 body form {
   text-align: center;
 }
-body form div {
-  margin: 10px 0 20px 0;
+body form input {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .card {
