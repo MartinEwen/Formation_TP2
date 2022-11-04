@@ -2,13 +2,7 @@
 require('createDB.php');
 session_start();
 
-
-
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,13 +62,13 @@ session_start();
                     <h2>Connexion</h2>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="mailUser" placeholder="mail">
+                    <input type="text" name="mailUser" placeholder="mail" required>
                 </div>
                 <div class="col-md-6">
-                    <input type="password" name="passwordUser" placeholder="Mot de passe">
+                    <input type="password" name="passwordUser" placeholder="Mot de passe" required>
                 </div>
                 <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Connexion">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Connexion" required>
                 </div>
             </div>
         </div>
@@ -87,19 +81,19 @@ session_start();
                     <h2>Inscription</h2>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="mailUser" placeholder="mail">
+                    <input type="text" name="mailUser" placeholder="mail" required>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="nameUser" placeholder="Nom">
+                    <input type="text" name="nameUser" placeholder="Nom" required>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="firstNameUser" placeholder="Prenom">
+                    <input type="text" name="firstNameUser" placeholder="Prenom" required>
                 </div>
                 <div class="col-md-3">
-                    <input type="password" name="passwordUser" placeholder="Mot de passe">
+                    <input type="password" name="passwordUser" placeholder="Mot de passe" required>
                 </div>
                 <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Enregistrer">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Enregistrer" required>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ try {
             session_start();
             $_SESSION['idUser'] = $resultat['idUser'];
             $_SESSION['mailUser'] = $mailUser;
-            header("location:index.php");
+            header("location:dashboardAdmin.php");
         } else {
             header("location:login.php");
         }

@@ -3,13 +3,81 @@ header img {
   height: 50vh;
 }
 
-body img {
-  width: 50px;
-  height: 50px;
+body {
+  background-color: #00ffff;
+}
+body h1 {
+  margin: 20px;
+  text-align: center;
+  font-weight: bold;
 }
 body form {
   text-align: center;
 }
 body form div {
   margin: 10px 0 20px 0;
+}
+
+.card {
+  width: 400px;
+  margin: 0px auto;
+  background-color: white;
+  box-shadow: 0px 5px 20px black;
+}
+
+.card:hover .card-image img {
+  width: 160%;
+  filter: grayscale(0);
+}
+
+.card-image {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+.card-image img {
+  width: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: grayscale(0.3);
+  transition-property: filter width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.card-body {
+  text-align: center;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  background-color: #0D0630;
+  color: #F4F1DE;
+}
+
+.card-title,
+.card-excerpt {
+  font-family: "Playfair Display", serif;
+}
+
+.card-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card-excerpt {
+  color: #777;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+@media all and (max-width: 800px) {
+  .pasdenom {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

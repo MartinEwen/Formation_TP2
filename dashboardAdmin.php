@@ -56,9 +56,9 @@ if($_SESSION){ ?>
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="col-3 pasdenom ">
                 <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                    <nav class="nav nav-pills flex-column">
+                    <nav class="nav nav-pills flex-column sticky">
                         <br>
                         <a class="nav-link" href="#item-1">Ajouter un produit</a>
                         <br>
@@ -70,28 +70,30 @@ if($_SESSION){ ?>
                 </nav>
             </div>
 
-            <div class="col-10">
+            <div class="col-9">
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
                     <div id="item-1">
-
-                        <form action="form_addproduct.php" method="POST" enctype="multipart/form-data">
+                    <form id="" action="form_addproduct.php" method="POST" enctype="multipart/form-data">
                             <h2>Ajouter un produit</h2>
                             <div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="">Nom du Produit</label>
-                                        <input type="text" name="nameProduct">
+                                        <br>
+                                        <input type="text" name="nameProduct" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Description du produit</label>
-                                        <input type="text" name="descriptionProduct">
+                                        <br>
+                                        <input type="text" name="descriptionProduct" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">prix du produit</label>
-                                        <input type="text" name="priceProduct">
+                                        <br>
+                                        <input type="text" name="priceProduct" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="file" name="images" value="" />
+                                        <input type="file" name="images" value=""  required/>
                                     </div>
                                     <div class="col-md-12">
                                         <button type="submit">Valider le nouveau produit</button>
@@ -100,8 +102,10 @@ if($_SESSION){ ?>
                             </div>
                         </form>
                     </div>
+
                     <div id="item-2">
-                        <form action="form_deleteproduct.php" method="post">
+
+                        <form action="" method="post">
                             <?php
                             try {
                                 $pdo = new PDO('mysql:host=localhost;dbname=BoutiqueTP;port=3306', 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -119,7 +123,7 @@ if($_SESSION){ ?>
                                     </tr>
                                 <?php
                                 foreach ($resultat as $value) {
-                                    echo '<tr><td>' . $value['nameProduct'] . '</td><td>' . $value['descriptionProduct'] . '</td><td>' . $value['priceProduct'] . '</td><td><button type="submit" value="' . $value['idProduct'] . '">supprimer</button></td></tr>';
+                                    echo '<tr><td>' . $value['nameProduct'] . '</td><td class="pasdenom">' . $value['descriptionProduct'] . '</td><td>' . $value['priceProduct'] . '</td><td><a class="btn btn-danger" href="form_deleteproduct.php?idProduct='. $value['idProduct'].' images=./upload/'.$value['images'].'" method="GET">Supprimer</a></td></tr>';
                                 }
                             } catch (PDOException $e) {
                                 echo "Erreur : " . $e->getMessage();
@@ -128,7 +132,9 @@ if($_SESSION){ ?>
                                 </table>
                         </form>
                     </div>
+
                     <div id="item-3">
+
                         <h2>Gestion des compte</h2>
                         <?php
                         try {
@@ -140,7 +146,7 @@ if($_SESSION){ ?>
                             <table class="table table-striped">
                             <?php
                             foreach ($resultat as $value) {
-                                echo '<tr><td>' . $value['nameUser'] . '</td><td>' . $value['firstNameUser'] . '</td><td>' . $value['mailUser'] . '</td><td><button class="btn btn-warnnig" type="submit">supprimer</button></td></tr>';
+                                echo '<tr><td class="pasdenom">' . $value['nameUser'] . '</td><td class="pasdenom">' . $value['firstNameUser'] . '</td><td>' . $value['mailUser'] . '</td><td><a class="btn btn-danger" href="form_deleteUser.php?idUser='. $value['idUser'].'" method="GET">Supprimer</a></td></tr>';
                             }
                         } catch (PDOException $e) {
                             echo "Erreur : " . $e->getMessage();
@@ -148,6 +154,7 @@ if($_SESSION){ ?>
                             ?>
                             </table>
                     </div>
+
                 </div>
             </div>
         </div>
